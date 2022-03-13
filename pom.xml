@@ -31,6 +31,13 @@
 			<version>${springsecurity.version}</version>
 		</dependency>
 
+<!--		Add Spring Security Tablibs support-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+
 		<!-- Spring MVC support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
