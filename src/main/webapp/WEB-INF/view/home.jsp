@@ -18,6 +18,16 @@
     <p>User: <security:authentication property="principal.username" /></p>
     <p>Role(s): <security:authentication property="principal.authorities" /></p>
     <hr>
+
+    <p>
+        <a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+        (Only for Manager people)
+    </p>
+    <p>
+        <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
+        (Only for Admin people)
+    </p>
+
     <div>
         <form:form action="${pageContext.request.contextPath}/logout" method="POST">
             <input type="submit" value="Logout">

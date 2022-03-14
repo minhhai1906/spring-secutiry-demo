@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <head>
@@ -14,9 +15,23 @@
 </head>
 <body>
     <h2>Hello World from Spring Security</h2>
+    <p>User: <security:authentication property="principal.username" /></p>
+    <p>Role(s): <security:authentication property="principal.authorities" /></p>
+    <hr>
 
-    <form:form action="${pageContext.request.contextPath}/logout" method="POST">
-        <input type="submit" value="Logout">
-    </form:form>
+    <p>
+        <a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+        (Only for Manager people)
+    </p>
+    <p>
+        <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
+        (Only for Admin people)
+    </p>
+
+    <div>
+        <form:form action="${pageContext.request.contextPath}/logout" method="POST">
+            <input type="submit" value="Logout">
+        </form:form>
+    </div>
 </body>
 </html>
