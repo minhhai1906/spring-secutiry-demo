@@ -19,14 +19,19 @@
     <p>Role(s): <security:authentication property="principal.authorities" /></p>
     <hr>
 
-    <p>
-        <a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
-        (Only for Manager people)
-    </p>
-    <p>
-        <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
-        (Only for Admin people)
-    </p>
+    <security:authorize access="hasRole('MANAGER')">
+        <p>
+            <a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+            (Only for Manager people)
+        </p>
+    </security:authorize>
+
+    <security:authorize access="hasRole('ADMIN')">
+        <p>
+            <a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
+            (Only for Admin people)
+        </p>
+    </security:authorize>
 
     <div>
         <form:form action="${pageContext.request.contextPath}/logout" method="POST">
